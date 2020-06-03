@@ -1,7 +1,17 @@
 {
-  "name": "learning",
+  "name": "dummy",
   "version": "1.0.0",
   "main": "app.js",
+  "author": "Kevin <kevinchu.work@gmail.com>",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "gulp": "^4.0.2",
+    "gulp-nodemon": "^2.5.0"
+  },
+  "dependencies": {},
+  "scripts": {
+    "gulp": "gulp"
+  }
 }
