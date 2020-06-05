@@ -1,0 +1,3 @@
+docker run -d -v $(pwd):/app -p 3000:3000 -p 3001:3001 -p:3002:3002 dev \
+forever start -a app.js \
+browser-sync start --server --files \"*.*\" --no-open false

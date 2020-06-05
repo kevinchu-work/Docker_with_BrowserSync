@@ -12,6 +12,7 @@
   },
   "dependencies": {},
   "scripts": {
-    "gulp": "gulp"
+    "gulp": "gulp",
+    "clean": "rm -dfr node_modules yarn.lock"
   }
 }
