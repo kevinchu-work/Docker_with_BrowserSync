@@ -1,42 +1,38 @@
 'use strict';
 
-var gulp = require('gulp');
-var browserSync = require('browser-sync');
-var nodemon = require('gulp-nodemon');
+let gulp = require('gulp');
+let browserSync = require('browser-sync');
+let nodemon = require('gulp-nodemon');
 
 gulp.task('nodemon', function (cb) {
-
-  var started = false;
+	
+  let started = false;  // Avoid duplicated execution
 
   return nodemon({
     script: 'app.js',
-    env: {
-      port: 3000
-    },
     ignore: [
-      'gulpfile.js',
+      // 'gulpfile.js',   // It is up to you
       'node_modules/'
     ]
-  }).on('start', function () {
-    if (!started) {
-      started = true;
-      cb();
-    }
-  });
+	}).on('start', function () {
+		if (!started) {
+			cb();
+			started = true; 
+		} 
+	});
 });
 
-gulp.task('browser-sync', gulp.series(['nodemon'], function () {
-// gulp.task('browser-sync', function () {
-  browserSync.init('*.js', {
-    open: false,
-    proxy: "localhost:3000",
-    // files: ["**/*.js"],
-    // port: 3000,
-    // notify: false
+
+gulp.task('browser-sync', gulp.series('nodemon', () => {
+  browserSync.init(null, {
+    files: ["**/*.*"],
+    proxy: "http://localhost:3000",
+    port: 5000,
+    open: false,  // Disable for Docker environment
+    browser: ["google chrome", "firefox"],
+    reloadDelay: 1000,
+    timestamps: true,
   });
-// });
 }));
 
-gulp.task('default', gulp.series('browser-sync', function () {
-  gulp.watch(["*.*"], function() { console.log("sync"); browserSync.reload; });
-}));
+gulp.task('default', gulp.series('browser-sync', () => { }));

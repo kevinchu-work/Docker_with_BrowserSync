@@ -19,9 +19,4 @@ FROM mcr.microsoft.com/vscode/devcontainers/javascript-node:0-12
 # && apt-get clean -y \
 # && rm -rf /var/lib/apt/lists/* \
 
-# WORKDIR /app
-RUN yarn global add browser-sync forever
-
-# RUN yarn global add browser-sync
-
 # ENV DEBIAN_FRONTEND=dialog

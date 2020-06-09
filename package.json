@@ -10,9 +10,8 @@
     "gulp": "^4.0.2",
     "gulp-nodemon": "^2.5.0"
   },
-  "dependencies": {},
   "scripts": {
     "gulp": "gulp",
-    "clean": "rm -dfr node_modules yarn.lock"
+    "reset": "rm -dfr node_modules yarn.lock && yarn install"
   }
 }
