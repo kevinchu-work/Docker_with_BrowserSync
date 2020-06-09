@@ -4,7 +4,7 @@
   "main": "app.js",
   "author": "Kevin <kevinchu.work@gmail.com>",
   "license": "MIT",
-  "private": true,
+  "private": false,
   "devDependencies": {
     "browser-sync": "^2.26.7",
     "gulp": "^4.0.2",
